@@ -6,67 +6,85 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-    <TextView
-        android:id="@+id/textView"
+    <LinearLayout
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="40dp"
-        android:text="Esqueleto do Vamos Rachar"
-        android:textSize="24sp"
-        app:layout_constraintBottom_toTopOf="@+id/edtConta"
+        android:layout_height="match_parent"
+        android:layout_marginStart="32dp"
+        android:layout_marginEnd="32dp"
+        android:gravity="center"
+        android:orientation="vertical"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent">
 
-    <Button
-        android:id="@+id/btFalar"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="50dp"
-        android:onClick="clickFalar"
-        android:text="Falar"
-        app:layout_constraintEnd_toStartOf="@+id/button4"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/button4" />
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Esqueleto do Vamos Rachar"
+            android:textSize="24sp" />
 
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/floatingActionButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="84dp"
-        android:layout_marginEnd="70dp"
-        android:layout_marginBottom="83dp"
-        android:clickable="true"
-        android:importantForAccessibility="no"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button4"
-        app:srcCompat="?attr/actionModeShareDrawable" />
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="40sp" />
 
-    <Button
-        android:id="@+id/button4"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="40dp"
-        android:contentDescription="Compre suas cartas Pokemon"
-        android:onClick="clickFalar"
-        android:text="Comprar"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/btFalar"
-        app:layout_constraintTop_toBottomOf="@+id/edtConta" />
+        <EditText
+            android:id="@+id/edtConta"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Valor da Conta"
+            android:inputType="number" />
 
-    <EditText
-        android:id="@+id/edtConta"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:hint="Insira o valor da conta"
-        android:inputType="number"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        <EditText
+            android:id="@+id/edtPessoas"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="19dp"
+            android:hint="Número de Pessoas"
+            android:inputType="number" />
+
+        <TextView
+            android:id="@+id/warning"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Insira os valores para calcular!" />
+
+        <LinearLayout
+            android:id="@+id/result"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="40sp"
+            android:gravity="center"
+            android:orientation="horizontal"
+            android:visibility="invisible">
+
+            <TextView
+                android:id="@+id/resultText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="12" />
+
+            <Space
+                android:layout_width="30sp"
+                android:layout_height="match_parent" />
+
+            <Button
+                android:id="@+id/btFalar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:onClick="clickFalar"
+                android:text="Falar" />
+        </LinearLayout>
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/btShare"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:clickable="true"
+            android:importantForAccessibility="no"
+            android:onClick='clickShare'
+            android:visibility="invisible"
+            app:srcCompat="?attr/actionModeShareDrawable" />
+    </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
