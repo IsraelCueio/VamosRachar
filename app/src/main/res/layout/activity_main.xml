@@ -9,9 +9,8 @@
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
-        android:layout_marginStart="32dp"
-        android:layout_marginEnd="32dp"
         android:gravity="center"
+        android:minWidth="280dp"
         android:orientation="vertical"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent">
@@ -20,7 +19,7 @@
             android:id="@+id/textView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Esqueleto do Vamos Rachar"
+            android:text="Vamos Rachar"
             android:textSize="24sp" />
 
         <Space
@@ -32,7 +31,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Valor da Conta"
-            android:inputType="number" />
+            android:inputType="number"
+            android:minHeight="48dp" />
 
         <EditText
             android:id="@+id/edtPessoas"
@@ -40,7 +40,8 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="19dp"
             android:hint="Número de Pessoas"
-            android:inputType="number" />
+            android:inputType="number"
+            android:minHeight="48dp" />
 
         <TextView
             android:id="@+id/warning"
@@ -80,6 +81,7 @@
             android:id="@+id/btShare"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:backgroundTint="#01A879"
             android:clickable="true"
             android:importantForAccessibility="no"
             android:onClick='clickShare'
