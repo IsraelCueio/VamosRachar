@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<resources>
+    <string name="app_name">"GoDutch"</string>
+    <string name="ficam">"It\'s "</string>
+    <string name="r_para_cada">" R$ to each!"</string>
+    <string name="pelo_menos_1_pessoa">Someone must pay!</string>
+    <string name="insira_os_valores">Insert the values to calculate!</string>
+    <string name="app_title">Go Dutch</string>
+    <string name="txt_field_1">Bill amount</string>
+    <string name="txt_field_2">People amount</string>
+    <string name="falar">Speak</string>
+</resources>

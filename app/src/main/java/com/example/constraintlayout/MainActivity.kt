@@ -1,6 +1,7 @@
 package com.example.constraintlayout
 
 import android.content.Intent
+import android.content.res.Configuration
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.speech.tts.TextToSpeech
@@ -11,6 +12,7 @@ import android.view.View
 import android.widget.EditText
 import android.widget.LinearLayout
 import android.widget.TextView
+import android.widget.Toast
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import java.math.RoundingMode
 import java.util.*
@@ -26,6 +28,19 @@ class MainActivity : AppCompatActivity() , TextWatcher, TextToSpeech.OnInitListe
     private lateinit var btShare:FloatingActionButton
 
     private var ttsSucess: Boolean = false;
+
+    override fun onConfigurationChanged(newConfig: Configuration) {
+        super.onConfigurationChanged(newConfig)
+
+        // Checks whether a keyboard is available
+        if (newConfig.orientation === Configuration.ORIENTATION_PORTRAIT) {
+            Toast.makeText(this, "PORTRAIT MODE", Toast.LENGTH_SHORT).show()
+        } else if (newConfig.orientation === Configuration.ORIENTATION_LANDSCAPE) {
+            Toast.makeText(this, "LANDSCAPE MODE", Toast.LENGTH_SHORT).show()
+        }
+    }
+
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -60,18 +75,18 @@ class MainActivity : AppCompatActivity() , TextWatcher, TextToSpeech.OnInitListe
         if (edtPessoas.text.isNotEmpty()){
             if(edtPessoas.text.toString() != "0"){
                 splitResult = ((edtConta.text.toString()).toDouble()/(edtPessoas.text.toString()).toInt()).toBigDecimal().setScale(2,RoundingMode.HALF_EVEN).toDouble()
-                resultText.text = "Ficam "+(splitResult.toString())+ " R$ para cada!"
+                resultText.text = getString(R.string.ficam)+(splitResult.toString())+ getString(R.string.r_para_cada)
                 warning.visibility = View.INVISIBLE
                 result.visibility = View.VISIBLE
                 btShare.visibility = View.VISIBLE
             } else {
-                warning.text = "Deve haver pelo menos 1 pessoa!"
+                warning.text = getString(R.string.pelo_menos_1_pessoa)
                 result.visibility = View.INVISIBLE
                 warning.visibility = View.VISIBLE
                 btShare.visibility = View.INVISIBLE
             }
         } else{
-            warning.text = "Insira os valores para calcular!"
+            warning.text = getString(R.string.insira_os_valores)
             result.visibility = View.INVISIBLE
             warning.visibility = View.VISIBLE
             btShare.visibility = View.INVISIBLE
@@ -81,7 +96,7 @@ class MainActivity : AppCompatActivity() , TextWatcher, TextToSpeech.OnInitListe
     fun clickShare(v: View){
         val sendIntent: Intent = Intent().apply {
             action = Intent.ACTION_SEND
-            putExtra(Intent.EXTRA_TEXT, "Ficam "+splitResult.toString()+" R$ para cada.")
+            putExtra(Intent.EXTRA_TEXT, getString(R.string.ficam)+splitResult.toString()+ getString(R.string.r_para_cada))
             type = "text/plain"
         }
         val shareIntent = Intent.createChooser(sendIntent, null)
@@ -95,7 +110,7 @@ class MainActivity : AppCompatActivity() , TextWatcher, TextToSpeech.OnInitListe
         }
         if(ttsSucess) {
             Log.d ("PDM23", tts.language.toString())
-            tts.speak("Ficam "+(splitResult.toString())+ " R$ para cada!", TextToSpeech.QUEUE_FLUSH, null, null)
+            tts.speak(getString(R.string.ficam)+(splitResult.toString())+ getString(R.string.r_para_cada), TextToSpeech.QUEUE_FLUSH, null, null)
         }
 
 

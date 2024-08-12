@@ -1,3 +1,11 @@
 <resources>
-    <string name="app_name">VamoRachar</string>
+    <string name="app_name">"VamoRachar"</string>
+    <string name="ficam">"Ficam "</string>
+    <string name="r_para_cada">" R$ para cada!"</string>
+    <string name="pelo_menos_1_pessoa">Alguém tem que pagar!</string>
+    <string name="insira_os_valores">Insira os valores para calcular!</string>
+    <string name="app_title">Vamos Rachar</string>
+    <string name="txt_field_1">Valor da Conta</string>
+    <string name="txt_field_2">Número de Pessoas</string>
+    <string name="falar">Falar</string>
 </resources>
